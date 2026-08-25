@@ -1,6 +1,6 @@
-# SecurityTableBench Code
+# TrustDABench Code
 
-This package contains the data-construction code for SecurityTableBench.
+This package contains the data-construction code for TrustDABench.
 It builds reliability and robustness attack samples for structured-data
 analysis tasks.
 
