@@ -4,9 +4,7 @@ This package contains the data-construction code for TrustDABench.
 It builds reliability and robustness attack samples for structured-data
 analysis tasks.
 
-The released code is separated from the released data. Generated datasets,
-intermediate workspaces, model logs, API credentials, and local paths are not
-included in this code package.
+Data:  https://modelscope.cn/datasets/Skyorca/TrustDABench
 
 ## Components
 
