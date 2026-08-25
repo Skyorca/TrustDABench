@@ -1,0 +1,52 @@
+dataset_path: "../data/aida_qa/QA.jsonl"
+data_root: "../data/aida_qa/input"
+output_dir: "outputs/aida_qa"
+
+model:
+  base_url: "${OPENAI_BASE_URL}"
+  api_key: "${OPENAI_API_KEY}"
+  name: "your-constructor-model"
+  max_rounds: 20
+  temperature: 0.0
+  max_tokens: null
+  request_timeout: 120
+  max_retries: 2
+  tool_timeout_sec: 180
+  max_tool_calls_per_stage: null
+
+judge_model:
+  base_url: "${JUDGE_BASE_URL}"
+  api_key: "${JUDGE_API_KEY}"
+  name: "your-independent-judge-model"
+  max_rounds: 20
+  temperature: 0.0
+  max_tokens: null
+  request_timeout: 120
+  max_retries: 2
+  tool_timeout_sec: 180
+  max_tool_calls_per_stage: null
+
+runner:
+  log_level: "verbose"
+  num_workers: 1
+  limit: 5
+  construct_repair_attempts: 2
+  semantic_repair_attempts: 1
+  stall_timeout_sec: 600
+
+attacks:
+  enabled:
+    - row_order_shuffle
+    - column_order_shuffle
+    - header_synonym_substitution
+    - semantic_distractor_column
+    - equivalent_value_reencoding
+    - unit_scale_conversion
+    - csv_wide_long_reshape
+    - csv_relational_decomposition
+    - excel_hierarchical_header_relayout
+    - excel_cross_sheet_relayout
+    - decoy_feature_pack_injection
+    - non_observation_row_injection
+  max_attacks_per_sample: null
+  min_confidence: 0.7

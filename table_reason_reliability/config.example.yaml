@@ -1,0 +1,55 @@
+dataset_path: "../data/aida_qa/QA.jsonl"
+data_root: "../data/aida_qa/input"
+combined_output_path: "outputs/aida_qa/attack_dataset.jsonl"
+
+model:
+  base_url: "${OPENAI_BASE_URL}"
+  api_key: "${OPENAI_API_KEY}"
+  name: "your-constructor-model"
+  max_rounds: 20
+  temperature: 0.0
+  max_tokens: null
+  request_timeout: 120
+  max_retries: 2
+  tool_timeout_sec: 180
+  max_tool_calls_per_stage: null
+
+validator_model:
+  base_url: "${VALIDATOR_BASE_URL}"
+  api_key: "${VALIDATOR_API_KEY}"
+  name: "your-validator-model"
+  max_rounds: 20
+  temperature: 0.0
+  max_tokens: null
+  request_timeout: 120
+  max_retries: 2
+  tool_timeout_sec: 180
+  max_tool_calls_per_stage: null
+
+runner:
+  log_level: "verbose"
+  num_workers: 1
+  limit: 5
+  preflight: true
+
+phases:
+  - name: "easy"
+    output_dir: "outputs/aida_qa_easy"
+    attacks:
+      enabled:
+        - field_missing
+        - data_missing
+        - evidence_conflict
+        - file_missing
+        - header_conflict
+      max_attacks_per_sample: null
+      min_confidence: 0.7
+
+  - name: "hard"
+    output_dir: "outputs/aida_qa_hard"
+    attacks:
+      enabled:
+        - deep_analysis_missing
+        - structural_context_missing
+      max_attacks_per_sample: null
+      min_confidence: 0.7
