@@ -1,0 +1,22 @@
+dataset_path: "../data/TrustDABench-Data-Full/robustness/aida_qa/attack_dataset.jsonl"
+output_path: "outputs/aida_qa/predictions_example.jsonl"
+
+model:
+  base_url: "${OPENAI_BASE_URL}"
+  api_key: "${OPENAI_API_KEY}"
+  name: "your-model-name"
+  max_tokens: null
+  request_timeout: 120
+  max_retries: 2
+
+runner:
+  num_workers: 2
+  limit: null
+  stall_timeout_sec: 600
+  log_level: "info"
+
+agent:
+  max_rounds: 20
+  tool_timeout_sec: 600
+  tool_output_max_chars: 12000
+  keep_workspaces: false

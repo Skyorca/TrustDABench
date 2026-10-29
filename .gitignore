@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+pytest-of-*/
+.venv/
+data/
+**/outputs/
+**/debug/
+**/workspaces/
+**/predictions*.jsonl
+**/*_judgments.jsonl
+**/*_report.json
+**/config.yaml
+**/judge_config.yaml
+**/judge_config_dabench_closed_form.yaml

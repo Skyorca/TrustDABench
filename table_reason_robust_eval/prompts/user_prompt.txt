@@ -1,0 +1,8 @@
+You are given the following local data files in the current Python working directory:
+
+{file_list}
+
+Question:
+{question}
+
+Use Python if needed to inspect and analyze the files.

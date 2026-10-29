@@ -1,0 +1,16 @@
+input_paths:
+  - "outputs/dabench/predictions_example.jsonl"
+
+runner:
+  num_workers: 2
+  limit: null
+  stall_timeout_sec: 600
+  log_level: "info"
+
+judge:
+  mode: "dabench_closed_form"
+  skip_completed: true
+
+dabench:
+  labels_path: "../data/DABENCH/da-dev-labels.jsonl"
+  id_prefix: "DA_"
